@@ -5,6 +5,7 @@ const os = require('os');
 const fs = require('fs');
 const pm2 = require('pm2');
 
+
 const path_app = path.join(os.homedir(), 'huinity');
 const LOG = require(path.join(__dirname, 'save_log.js'));
 
@@ -14,7 +15,7 @@ function createWindow() {
     height: 300,
     frame: false,
     backgroundColor: '#000',
-    show: false,
+    show: true,
     webPreferences: {
       preload: path.join(__dirname, 'preload.js'),
       nodeIntegration: true,
@@ -57,15 +58,14 @@ function createWindow() {
   const checkPM2Installation = () => {
     exec('pm2 -v', (error, stdout, stderr) => {
       if (error) { runInstallationPM2() }
-      const createConnectPM2Command = `node ${path.join(__dirname, 'pm2.js')}`;
-      exec(createConnectPM2Command, (error, stdout, stderr) => { if (error) { throw error } });
+      //const createConnectPM2Command = `node ${path.join(__dirname, 'pm2.js')}`;
+      //exec(createConnectPM2Command, (error, stdout, stderr) => { if (error) { throw error } });
     })
   }
 
   checkPM2Installation();
 
   ipcMain.on('reload', () => { reload_station });
-
 }
 
 app.whenReady().then(() => {

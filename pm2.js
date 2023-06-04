@@ -15,8 +15,6 @@ pm2.connect((error) => {
     maxMemoryRestart: '2G',
     instances: 1,
     autorestart: true
-    //exec_mode: 'fork'
   });
 
 });
-

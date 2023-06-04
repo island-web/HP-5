@@ -19,7 +19,8 @@ const ADV = check_adv();
 let count_adv_download = 0;
 
 
-function send_msg(com = 'ONLINE', msg = null ){ process.send({ type : 'process:msg', data : { name: processName, command: com, message: msg }})}
+function send_msg(com = 'ONLINE', msg = null ){ 
+    process.send({ type : 'process:msg', data : { name: processName, command: com, message: msg }})}
 send_msg();
 
 
