@@ -20,7 +20,7 @@ try {
   fs.writeFileSync(path.join(_PATH_APP_, 'configs', 'station_settings.json'), JSON.stringify(['empty']), 'utf-8');
     
   fs.mkdirSync(path.join(_PATH_APP_, 'pm2'), { recursive: true });
-  fs.writeFileSync(path.join(_PATH_APP_, 'pm2', 'process.log'), '');
+  fs.writeFileSync(path.join(_PATH_APP_, 'pm2', 'processes_list.json'), '');
 
 
 } catch (error) {
